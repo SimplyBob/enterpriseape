@@ -54,3 +54,5 @@ end
 # gem 'debugger', group: [:development, :test]
 
 #gem 'heroku'
+
+gem 'bootstrap-sass', '~> 2.3.1.0'
