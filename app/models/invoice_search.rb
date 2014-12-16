@@ -4,11 +4,13 @@ class InvoiceSearch
   def initialize(params)
     params ||= {}
     @date_from = parsed_date(params[:date_from], 7.days.ago.to_date.to_s)
-    @date_to = parsed_date(params[:date_to], Date.today.to_s)
+    @date_to = parsed_date(params[:date_to], Date.today.next_day.to_s)
   end
 
   def scope
-    Invoice.where('date BETWEEN ? AND date(?, "+1 day")', @date_from, @date_to)
+    #Invoice.where('date BETWEEN ? AND date(?, "+1 day")', @date_from, @date_to)
+    #This query works only for sqlite, Possgress runs on the server though >_<
+    Invoice.where('date BETWEEN ? AND ?', @date_from, @date_to)
   end
 
   private #All methods past this point are private.
