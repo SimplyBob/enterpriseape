@@ -8,7 +8,7 @@ class InvoiceSearch
   end
 
   def scope
-    Invoice.where('date BETWEEN ? AND ?', @date_from, @date_to)
+    Invoice.where('date BETWEEN ? AND date(?, "+1 day")', @date_from, @date_to)
   end
 
   private #All methods past this point are private.
