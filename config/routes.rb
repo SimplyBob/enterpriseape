@@ -1,5 +1,5 @@
 Enterpriseape::Application.routes.draw do
-  resources :purchases
+  #resources :purchases
 
   resources :employees
 
@@ -14,8 +14,11 @@ Enterpriseape::Application.routes.draw do
   get "welcome/features"
   get "welcome/faq"
   get "welcome/pricing"
-  resources :invoices
 
+  resources :invoices do
+    resources :purchases, except: [:index], controller: 'invoices/purchases'
+  end
+  
   root to: 'welcome#index'
 
 end
