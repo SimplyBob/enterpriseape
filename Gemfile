@@ -13,6 +13,7 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'quiet_assets'
 end
 
 # Use SCSS for stylesheets
@@ -57,3 +58,4 @@ end
 
 gem 'bootstrap-sass', '~> 2.3.1.0'
 gem 'devise'
+#gem 'quiet_assets', group: :development

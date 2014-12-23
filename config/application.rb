@@ -22,3 +22,6 @@ module Enterpriseape
     # config.i18n.default_locale = :de
   end
 end
+
+#Enable / disable quiet_assets
+#config.quiet_assets = false
